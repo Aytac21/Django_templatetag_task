@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load humanize %}
+{% load numberformat %}
 
 {% block body %}
   <h1>Product List</h1>
@@ -7,7 +8,7 @@
   <ul>
     {% for product in products %}
       <li>
-        {{ product.name|default:"p/r/o/d/u/c/t" }}
+        {{ product.name|slash}}
         <br>
         {% if product.content %}
           {% if product.content|length|divisibleby:2 %}
