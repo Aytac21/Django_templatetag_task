@@ -2,7 +2,6 @@ from django import template
 
 register = template.Library()
 
-
 @register.filter()
 def formatize(val):
     try:
@@ -14,3 +13,10 @@ def formatize(val):
     except Exception:
         return val
 
+@register.filter()
+
+def slash(string):
+    result = ""
+    for char in string:
+        result += char + "/"
+    return result
